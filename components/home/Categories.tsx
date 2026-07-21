@@ -53,21 +53,21 @@ export function Categories() {
                                     strokeWidth={0.85}
                                 />
                                 <div className="relative flex items-end justify-between gap-3">
-                                    <div className="rounded-3xl bg-paper/90 px-5 py-3.5 backdrop-blur-sm">
+                                    <div className="flex flex-col gap-1.5 rounded-3xl bg-paper/90 px-5 py-3.5 backdrop-blur-sm">
                                         <p
                                             className="text-[0.62rem] font-semibold tracking-[0.16em] uppercase"
                                             style={{color: c.accent}}
                                         >
                                             {tc.caption}
                                         </p>
-                                        <h3
+                                        <span
                                             className={cn(
-                                                "mt-1 font-display leading-none text-ink",
-                                                f.big ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl",
+                                                "font-[600] leading-none text-ink",
+                                                f.big ? "text-xl sm:text-3xl" : "text-xl sm:text-2xl",
                                             )}
                                         >
                                             {tc.title}
-                                        </h3>
+                                        </span>
                                     </div>
                                     <span
                                         className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-paper transition-transform duration-500 group-hover:rotate-45"

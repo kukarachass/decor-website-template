@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Marquee />
+      {/*<Marquee />*/}
       <Categories />
       <Bestsellers />
       <PromoBanner />

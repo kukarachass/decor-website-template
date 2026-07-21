@@ -42,38 +42,39 @@ export function Hero() {
                     {/* текст */}
                     <div className="max-w-xl">
                         <Reveal>
-              <span
-                  className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-4 py-1.5 text-[0.7rem] font-semibold tracking-[0.16em] text-ink-2 uppercase">
-                <Sparkles className="h-3 w-3 text-clay-2"/>
-                  {t.home.heroBadge}
-              </span>
+                            <span className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/70 px-4 py-1.5 text-[0.7rem] font-semibold tracking-[0.16em] text-ink-2 uppercase">
+                                <Sparkles className="h-3 w-3 text-clay-2"/>
+                                {t.home.heroBadge}
+                            </span>
                         </Reveal>
 
+                        {/* TITLE */}
                         <Reveal delay={80}>
                             <h1 className="mt-6 font-display text-[2.7rem] leading-[1.02] text-ink sm:text-[3.4rem] lg:text-[3.9rem]">
                                 {t.home.heroTitle1}
                                 <br/>
                                 {t.home.heroTitle2}{" "}
                                 <span className="relative inline-block text-clay-2">
-                  {t.home.heroTitle3}
+                                    {t.home.heroTitle3}
                                     <svg
                                         viewBox="0 0 200 12"
                                         preserveAspectRatio="none"
                                         aria-hidden
                                         className="absolute -bottom-1 left-0 h-2.5 w-full text-blush"
                                     >
-                    <path
-                        d="M2 8c40-6 92-7 196-3"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
+                                        <path
+                                            d="M2 8c40-6 92-7 196-3"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="4"
+                                            strokeLinecap="round"
+                                        />
+                                    </svg>
+                                </span>
                             </h1>
                         </Reveal>
 
+                        {/* DESCRIPTION */}
                         <Reveal delay={160}>
                             <p className="lead mt-7 max-w-md text-[0.98rem] leading-relaxed">
                                 {t.home.heroText}
@@ -81,14 +82,21 @@ export function Hero() {
                         </Reveal>
 
                         <Reveal delay={240}>
-                            <div className="mt-8 flex flex-wrap items-center gap-3">
-                                <Link href="/catalog" className={buttonStyles({size: "lg"})}>
+                            <div className="mt-8 flex flex-wrap items-center gap-3 max-[599px]:flex-col">
+                                <Link
+                                    href="/catalog"
+                                    className={buttonStyles({className: "max-[599px]:w-full", size: "lg"})}
+                                >
                                     {t.home.heroCta}
                                     <ArrowRight className="h-4 w-4"/>
                                 </Link>
                                 <Link
                                     href="/catalog?sort=new"
-                                    className={buttonStyles({variant: "outline", size: "lg"})}
+                                    className={buttonStyles({
+                                        className: "max-[599px]:w-full",
+                                        variant: "outline",
+                                        size: "lg"
+                                    })}
                                 >
                                     {t.home.heroCta2}
                                 </Link>
@@ -113,13 +121,19 @@ export function Hero() {
 
                     {/* колаж із товарів */}
                     <Reveal delay={120} className="relative">
-                        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div className="min-[450px]:grid hidden grid-cols-2 gap-3 sm:gap-4 ">
                             <HeroTile product={tiles[0]} big t={t}/>
                             <div className="flex flex-col gap-3 sm:gap-4">
                                 <HeroTile product={tiles[1]} t={t}/>
                                 <HeroTile product={tiles[2]} t={t}/>
                             </div>
                         </div>
+                        <div className="min-[450px]:hidden flex flex-col gap-3 sm:gap-4 ">
+                            <HeroTile product={tiles[0]} t={t}/>
+                            <HeroTile product={tiles[1]} t={t}/>
+                            <HeroTile product={tiles[2]} t={t}/>
+                        </div>
+
 
                         {/* рейтинг */}
                         <div
@@ -195,18 +209,18 @@ export function Hero() {
                         ].map((c) => (
                             <div
                                 key={c.eyebrow}
-                                className={`flex items-center gap-4 rounded-3xl p-5 ${c.bg}`}
+                                className={`flex min-w-0 items-center gap-4 rounded-3xl p-5 ${c.bg}`}
                             >
-                <span
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/75 ${c.color}`}
-                >
-                  <c.icon className="h-[1.1rem] w-[1.1rem]"/>
-                </span>
+                                <span
+                                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/75 ${c.color}`}
+                                >
+                                  <c.icon className="h-[1.1rem] w-[1.1rem]"/>
+                                </span>
                                 <div className="min-w-0">
                                     <p className="text-[0.66rem] font-semibold tracking-[0.14em] text-ink-3 uppercase">
                                         {c.eyebrow}
                                     </p>
-                                    <p className="font-title text-[1.02rem] leading-tight">
+                                    <p className="font-title text-[1.02rem] leading-tight truncate">
                                         {c.title}
                                     </p>
                                     <p className="mt-0.5 truncate text-xs text-ink-2">{c.text}</p>
@@ -246,17 +260,17 @@ function HeroTile({
                 strokeWidth={big ? 0.7 : 1}
             />
             <div className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-2">
-        <span className="min-w-0 flex-1 rounded-2xl bg-paper/90 px-3.5 py-2 backdrop-blur-sm">
-          <span
-              className="block text-[0.62rem] font-semibold tracking-[0.14em] uppercase"
-              style={{color: accent}}
-          >
-            {t.categories[product.category]?.title}
-          </span>
-          <span className="hidden truncate font-title text-sm leading-tight sm:block">
-            {product.name}
-          </span>
-        </span>
+                <div className="min-w-0 flex-1 rounded-2xl bg-paper/90 px-3.5 py-2 backdrop-blur-sm">
+              <span
+                  className="block text-[0.62rem] font-semibold tracking-[0.14em] uppercase"
+                  style={{color: accent}}
+              >
+                {t.categories[product.category]?.title}
+              </span>
+                    <span className="truncate font-title text-sm leading-tight">
+                {product.name}
+              </span>
+                </div>
                 <span
                     className="shrink-0 rounded-full bg-ink px-2.5 py-1.5 text-[0.7rem] font-semibold whitespace-nowrap text-paper">
           {formatPrice(product.price)}
