@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Палітра ──────────────────────────────────────────── */
+  --color-paper: #fbf8f4;
+  --color-paper-2: #f6f0e8;
+  --color-sand: #f0e7db;
+  --color-sand-2: #e8dccd;
+  --color-sand-3: #ddcdb9;
+  --color-clay: #c2a288;
+  --color-clay-2: #ab8768;
+  --color-sage: #93a68c;
+  --color-blush: #d9a5a0;
+  --color-sky: #93a9bc;
+  --color-lilac: #b49fc0;
+  --color-honey: #c9a85c;
+  --color-rose: #c08d8d;
+  --color-ink: #2b2521;
+  --color-ink-2: #574d45;
+  --color-ink-3: #8b8078;
+  --color-line: #e7ded2;
+
+  /* ── Типографіка ──────────────────────────────────────── */
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Радіуси ──────────────────────────────────────────── */
+  --radius-xl2: 1.75rem;
+  --radius-arch: 999px 999px 24px 24px;
+
+  /* ── Анімації ─────────────────────────────────────────── */
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float-slow: float-slow 9s ease-in-out infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── База ───────────────────────────────────────────────── */
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 450;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Типографіка: великі заголовки — важкі, підзаголовки — спокійніші.
+   Класи в @layer components, щоб утиліти (font-semibold тощо) могли їх перекрити. */
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+
+  .font-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .lead {
+    font-weight: 400;
+    color: var(--color-ink-2);
+    letter-spacing: 0;
+  }
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+::selection {
+  background: var(--color-sand-3);
+  color: var(--color-ink);
+}
+
+/* Тонкий шум поверх фону — додає «паперовості» */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+}
+
+/* ── Утиліти ────────────────────────────────────────────── */
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 84rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-ink-3);
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* Плавна поява секцій при скролі */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Кастомний скролбар */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand-3);
+  border-radius: 999px;
+  border: 3px solid var(--color-paper-2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-clay);
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+input[type="range"] {
+  accent-color: var(--color-clay-2);
+}
