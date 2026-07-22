@@ -103,9 +103,6 @@ export const en: Dict = {
       "14-day returns",
       "Gift-ready packaging",
     ],
-    heroRating: "4.9 out of 5",
-    heroReviews: "over 3,000 reviews",
-    heroPick: "Editor's pick",
     marquee: [
       "We ship every day",
       "Cash on delivery",

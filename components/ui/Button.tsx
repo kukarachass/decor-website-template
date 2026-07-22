@@ -1,12 +1,14 @@
 import {cn} from "@/lib/utils";
 
-type Variant = "primary" | "outline" | "soft" | "ghost" | "clay";
+type Variant = "primary" | "outline" | "soft" | "ghost" | "clay" | "light";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
     primary:
         "bg-ink text-paper hover:bg-ink-2 shadow-[0_10px_30px_-14px_rgba(43,37,33,0.7)]",
     clay: "bg-clay-2 text-paper hover:bg-clay shadow-[0_10px_30px_-14px_rgba(171,135,104,0.9)]",
+    /* для тексту поверх фото — світла кнопка на темному тлі */
+    light: "bg-paper text-ink hover:bg-sand shadow-[0_14px_40px_-16px_rgba(0,0,0,0.65)]",
     outline: "border border-ink/15 text-ink hover:border-ink/40 hover:bg-sand/50",
     soft: "bg-sand text-ink hover:bg-sand-2",
     ghost: "text-ink hover:bg-sand/70",
