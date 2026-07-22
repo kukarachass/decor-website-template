@@ -208,6 +208,7 @@ export function ProductArt({
     className,
     glyphClassName,
     strokeWidth = 1.15,
+    plain = false,
 }: {
     category: CategorySlug;
     seed: string;
@@ -215,6 +216,8 @@ export function ProductArt({
     className?: string;
     glyphClassName?: string;
     strokeWidth?: number;
+    /** Без градієнта й підкладки — лише лінійний малюнок на світлій поверхні */
+    plain?: boolean;
 }) {
     const base = hashCode(seed);
     const h = hashCode(seed + variant);
@@ -237,11 +240,13 @@ export function ProductArt({
                 className,
             )}
             style={{
-                background: `linear-gradient(155deg, color-mix(in srgb, ${accent} ${from}%, #FDFBF8), color-mix(in srgb, ${accent} ${to}%, #F4EEE6))`,
+                background: plain
+                    ? "rgba(255,255,255,0.55)"
+                    : `linear-gradient(155deg, color-mix(in srgb, ${accent} ${from}%, #FDFBF8), color-mix(in srgb, ${accent} ${to}%, #F4EEE6))`,
             }}
         >
             {/* мʼяка світлова пляма */}
-            <div
+            {!plain && <div
                 aria-hidden
                 className="absolute h-[70%] w-[70%] rounded-full opacity-70 blur-2xl"
                 style={{
@@ -250,15 +255,15 @@ export function ProductArt({
                     background:
                         "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), transparent 70%)",
                 }}
-            />
+            />}
             {/* підкладка: коло або арка */}
-            <div
+            {!plain && <div
                 aria-hidden
                 className={cn(
                     "absolute left-1/2 top-1/2 h-[62%] w-[58%] -translate-x-1/2 -translate-y-1/2 border border-white/50 bg-white/30",
                     arch ? "rounded-t-full rounded-b-2xl" : "rounded-full",
                 )}
-            />
+            />}
             <svg
                 viewBox="0 0 100 100"
                 aria-hidden
@@ -278,7 +283,7 @@ export function ProductArt({
                     {glyph}
                 </g>
             </svg>
-            <div className="grain absolute inset-0" aria-hidden/>
+            {!plain && <div className="grain absolute inset-0" aria-hidden/>}
         </div>
     );
 }

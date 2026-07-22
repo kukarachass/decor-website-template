@@ -56,13 +56,14 @@ export function Hero() {
             </div>
 
             {/* візуал: на десктопі — арка, що виростає з нижнього краю банера */}
-            <div className="px-6 pb-10 pt-10 sm:px-10 lg:absolute lg:bottom-0 lg:right-10 lg:top-10 lg:w-[30%] lg:px-0 lg:pb-0 lg:pt-0 xl:right-14">
-              <div className="mx-auto h-full w-full max-w-[19rem] overflow-hidden rounded-t-[12rem] rounded-b-[1.5rem] lg:max-w-none lg:rounded-b-none lg:rounded-t-[16rem]">
+            <div className="px-6 pb-9 pt-8 sm:px-10 lg:absolute lg:bottom-0 lg:right-10 lg:top-10 lg:w-[30%] lg:px-0 lg:pb-0 lg:pt-0 xl:right-14">
+              <div className="mx-auto h-full w-full max-w-[16rem] overflow-hidden sm:max-w-[17rem] rounded-t-[12rem] rounded-b-[1.5rem] shadow-[0_40px_80px_-50px_rgba(43,37,33,0.55)] ring-1 ring-white/70 lg:max-w-none lg:rounded-b-none lg:rounded-t-[16rem]">
                 <ProductArt
                   category="vazy"
                   seed="hero-banner"
                   className="aspect-[4/5] w-full lg:h-full lg:aspect-auto"
-                  strokeWidth={0.55}
+                  strokeWidth={0.6}
+                  plain
                 />
               </div>
             </div>
