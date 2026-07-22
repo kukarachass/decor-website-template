@@ -24,14 +24,14 @@ export function Hero() {
             className="pointer-events-none absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,#DCE7DC,transparent_70%)] opacity-70 blur-3xl"
           />
 
-          <div className="relative grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative lg:min-h-[27rem]">
             {/* текст */}
-            <div className="px-6 pt-12 sm:px-10 sm:pt-14 lg:py-20 lg:pl-14 lg:pr-0">
+            <div className="px-6 pt-12 sm:px-10 sm:pt-14 lg:max-w-[54%] lg:py-16 lg:pl-14 xl:py-20">
               <p className="text-[0.7rem] font-semibold tracking-[0.18em] text-clay-2 uppercase">
                 {t.home.heroBadge}
               </p>
 
-              <h1 className="mt-5 max-w-lg font-display text-[2.4rem] leading-[1.04] text-ink sm:text-[3rem] lg:text-[3.5rem]">
+              <h1 className="mt-5 font-display text-[2.4rem] leading-[1.04] text-ink sm:text-[3rem] lg:text-[3.4rem]">
                 {t.home.heroTitle1} {t.home.heroTitle2}{" "}
                 <span className="text-clay-2">{t.home.heroTitle3}</span>
               </h1>
@@ -55,13 +55,13 @@ export function Hero() {
               </div>
             </div>
 
-            {/* візуал */}
-            <div className="relative px-6 pb-10 pt-8 sm:px-10 lg:h-full lg:px-0 lg:pb-0 lg:pt-0">
-              <div className="mx-auto w-full max-w-sm overflow-hidden rounded-t-[12rem] rounded-b-[1.5rem] lg:mr-10 lg:max-w-none lg:rounded-b-none lg:rounded-t-[16rem]">
+            {/* візуал: на десктопі — арка, що виростає з нижнього краю банера */}
+            <div className="px-6 pb-10 pt-10 sm:px-10 lg:absolute lg:bottom-0 lg:right-10 lg:top-10 lg:w-[30%] lg:px-0 lg:pb-0 lg:pt-0 xl:right-14">
+              <div className="mx-auto h-full w-full max-w-[19rem] overflow-hidden rounded-t-[12rem] rounded-b-[1.5rem] lg:max-w-none lg:rounded-b-none lg:rounded-t-[16rem]">
                 <ProductArt
                   category="vazy"
                   seed="hero-banner"
-                  className="aspect-[4/5] w-full lg:aspect-[5/6]"
+                  className="aspect-[4/5] w-full lg:h-full lg:aspect-auto"
                   strokeWidth={0.55}
                 />
               </div>
