@@ -20,8 +20,8 @@ export function LanguageSwitcher({
   return (
     <div
       className={cn(
-        "relative inline-flex items-center rounded-full p-0.5",
-        tone === "dark" ? "bg-paper/10" : "bg-sand/80",
+        "inline-flex h-9 items-center rounded-full p-0.5",
+        tone === "dark" ? "bg-paper/10" : "bg-sand/70",
         className,
       )}
       role="group"
@@ -36,7 +36,7 @@ export function LanguageSwitcher({
             onClick={() => setLocale(o.id)}
             aria-pressed={active}
             className={cn(
-              "relative cursor-pointer rounded-full px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide transition-colors",
+              "flex h-8 cursor-pointer items-center rounded-full px-3 text-[0.7rem] font-semibold tracking-wide transition-colors",
               active
                 ? tone === "dark"
                   ? "bg-paper text-ink"

@@ -98,6 +98,14 @@ export const en: Dict = {
     heroText: "Decor, shelves, vases and small things that keep your space in order. Soft shapes, calm shades and materials you want to touch.",
     heroCta: "Shop decor",
     heroCta2: "New this week",
+    heroTrust: [
+      "We ship every day",
+      "14-day returns",
+      "Gift-ready packaging",
+    ],
+    heroRating: "4.9 out of 5",
+    heroReviews: "over 3,000 reviews",
+    heroPick: "Editor's pick",
     marquee: [
       "We ship every day",
       "Cash on delivery",

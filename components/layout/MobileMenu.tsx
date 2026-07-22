@@ -9,6 +9,7 @@ import { categories } from "@/lib/data/categories";
 import { cn } from "@/lib/utils";
 import { LogoMark } from "@/components/ui/Logo";
 import { buttonStyles } from "@/components/ui/Button";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useT } from "@/lib/i18n";
 
 export function MobileMenu() {
@@ -52,6 +53,7 @@ export function MobileMenu() {
         <div className="flex items-center justify-between border-b border-line px-6 py-5">
           <LogoMark className="w-7 text-ink" />
           <div className="flex items-center gap-2">
+            <LanguageSwitcher />
             <button
               type="button"
               onClick={() => setOpen(false)}

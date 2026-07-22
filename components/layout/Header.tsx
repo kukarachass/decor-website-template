@@ -52,13 +52,11 @@ export function Header() {
     return (
         <header className="sticky top-0 z-50">
             <div className="bg-ink text-paper/85">
-                <div className="container-x flex h-9 items-center justify-between gap-4">
-                    <span aria-hidden className="hidden w-16 sm:block"/>
-                    <p className="flex-1 truncate text-center text-[0.66rem] font-medium tracking-[0.12em] uppercase sm:flex-none">
+                <div className="container-x flex h-9 items-center justify-center">
+                    <p className="truncate text-center text-[0.66rem] font-medium tracking-[0.12em] uppercase">
                         <span className="hidden sm:inline">{t.header.announce}</span>
                         <span className="sm:hidden">{t.header.announceShort}</span>
                     </p>
-                    <LanguageSwitcher tone="dark" className="shrink-0 sm:w-16"/>
                 </div>
             </div>
 
@@ -122,6 +120,12 @@ export function Header() {
 
                         {/* права частина */}
                         <div className="flex items-center justify-end gap-1 md:gap-2">
+                            {/* мова — поруч з іконками; на мобільному живе в бургер-меню */}
+                            <div className="mr-1 hidden items-center gap-2 lg:flex">
+                                <LanguageSwitcher/>
+                                <span aria-hidden className="h-5 w-px bg-line"/>
+                            </div>
+
                             <button
                                 type="button"
                                 aria-label={t.common.search}
