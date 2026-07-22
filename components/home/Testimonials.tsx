@@ -13,7 +13,7 @@ export function Testimonials() {
   const t = useT();
 
   return (
-    <section className="bg-paper-2/70 py-20 md:py-28">
+    <section className="bg-paper-2/70 py-14 md:py-24">
       <div className="container-x">
         <SectionHeader
           eyebrow={t.home.reviewsEyebrow}

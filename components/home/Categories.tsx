@@ -23,7 +23,7 @@ export function Categories() {
     const t = useT();
 
     return (
-        <section id="categories" className="container-x scroll-mt-28 py-20 md:py-28">
+        <section id="categories" className="container-x scroll-mt-28 py-14 md:py-24">
             <SectionHeader
                 eyebrow={t.home.categoriesEyebrow}
                 title={t.home.categoriesTitle}

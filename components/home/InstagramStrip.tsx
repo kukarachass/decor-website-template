@@ -19,7 +19,7 @@ export function InstagramStrip() {
   const t = useT();
 
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-14 md:py-24">
       <div className="container-x">
         <Reveal className="flex flex-col items-center gap-3 text-center">
           <p className="eyebrow">Instagram</p>

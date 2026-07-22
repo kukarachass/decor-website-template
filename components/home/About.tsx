@@ -14,7 +14,7 @@ export function About() {
   const t = useT();
 
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#FBF8F4_0%,#F4EFE7_40%,#FBF8F4_100%)] py-20 md:py-28">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#FBF8F4_0%,#F4EFE7_40%,#FBF8F4_100%)] py-14 md:py-24">
       <div className="container-x grid items-center gap-14 lg:grid-cols-2">
         <Reveal className="relative">
           <div className="relative mx-auto max-w-md">

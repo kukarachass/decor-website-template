@@ -10,7 +10,7 @@ export function Bestsellers() {
     const items = products.filter((p) => p.tags.includes("bestseller"));
 
     return (
-        <section className="container-x py-20 md:py-28">
+        <section className="container-x py-14 md:py-24">
             <SectionHeader
                 eyebrow={t.home.bestsellersEyebrow}
                 title={t.home.bestsellersTitle}

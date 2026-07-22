@@ -101,22 +101,23 @@ export function ProductCard({product: raw, aspect = "aspect-[4/5]", className}: 
                     )}
                 </div>
 
-                <div className="mt-4 flex flex-1 items-start justify-between gap-3">
+                <div
+                    className="mt-4 flex flex-1 flex-col gap-1.5 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
                     <div className="min-w-0">
                         <p
-                            className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
+                            className="text-[0.66rem] font-semibold tracking-[0.14em] uppercase"
                             style={{color: accent}}
                         >
                             {t.categories[product.category]?.title}
                         </p>
-                        <h3 className="mt-1 truncate font-title text-[1.05rem] leading-tight text-ink">
+                        <h3 className="mt-1 line-clamp-2 font-title text-[1rem] leading-snug text-ink sm:truncate sm:text-[1.05rem] sm:leading-tight">
                             {product.name}
                         </h3>
-                        <p className="mt-0.5 truncate text-xs text-ink-3">
+                        <p className="mt-0.5 line-clamp-1 text-xs text-ink-3">
                             {product.subtitle}
                         </p>
                     </div>
-                    <div className="shrink-0 text-right">
+                    <div className="flex shrink-0 items-baseline gap-2 sm:block sm:text-right">
                         <p className="font-display text-[1.05rem] leading-tight">
                             {formatPrice(product.price)}
                         </p>

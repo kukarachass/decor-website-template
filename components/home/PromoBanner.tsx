@@ -54,7 +54,7 @@ export function PromoBanner() {
                               seed={p.id}
                               className="aspect-[4/5] w-full rounded-[16px]"
                           />
-                          <p className="mt-3 truncate font-title text-sm">{p.name}</p>
+                          <p className="mt-3 line-clamp-2 font-title text-sm leading-snug">{p.name}</p>
                           <p className="truncate text-[0.8rem] font-semibold">
                               {formatPrice(p.price)}
                           </p>
