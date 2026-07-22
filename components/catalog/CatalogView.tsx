@@ -212,7 +212,7 @@ export function CatalogView() {
         <div className="grid gap-10 lg:grid-cols-[16rem_1fr] xl:gap-14">
           {/* сайдбар */}
           <aside className="hidden lg:block">
-            <div className="sticky top-28">
+            <div className="sticky top-[135px]">
               <Filters
                 state={state}
                 products={products}
