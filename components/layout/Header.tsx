@@ -32,8 +32,6 @@ export function Header() {
     const navLinks = [
         {href: "/catalog?sort=new", label: t.nav.new},
         {href: "/about", label: t.nav.about},
-        {href: "/delivery", label: t.nav.delivery},
-        {href: "/contacts", label: t.nav.contacts},
     ];
 
     useEffect(() => {
@@ -53,9 +51,15 @@ export function Header() {
 
     return (
         <header className="sticky top-0 z-50">
-            <div className="bg-ink px-4 py-2 text-center text-[0.68rem] font-medium tracking-[0.12em] text-paper/85 uppercase">
-                <span className="hidden sm:inline">{t.header.announce}</span>
-                <span className="sm:hidden">{t.header.announceShort}</span>
+            <div className="bg-ink text-paper/85">
+                <div className="container-x flex h-9 items-center justify-between gap-4">
+                    <span aria-hidden className="hidden w-16 sm:block"/>
+                    <p className="flex-1 truncate text-center text-[0.66rem] font-medium tracking-[0.12em] uppercase sm:flex-none">
+                        <span className="hidden sm:inline">{t.header.announce}</span>
+                        <span className="sm:hidden">{t.header.announceShort}</span>
+                    </p>
+                    <LanguageSwitcher tone="dark" className="shrink-0 sm:w-16"/>
+                </div>
             </div>
 
             <div
@@ -91,7 +95,7 @@ export function Header() {
                                 >
                                     {t.nav.catalog}
                                 </button>
-                                {navLinks.slice(0, 2).map((l) => (
+                                {navLinks.map((l) => (
                                     <Link
                                         key={l.href}
                                         href={l.href}
@@ -118,21 +122,6 @@ export function Header() {
 
                         {/* права частина */}
                         <div className="flex items-center justify-end gap-1 md:gap-2">
-                            <div className="mr-3 hidden items-center gap-5 xl:flex">
-                                {navLinks.slice(2).map((l) => (
-                                    <Link
-                                        key={l.href}
-                                        href={l.href}
-                                        onMouseEnter={() => setMegaOpen(false)}
-                                        className="link-underline text-[0.86rem] font-medium whitespace-nowrap text-ink"
-                                    >
-                                        {l.label}
-                                    </Link>
-                                ))}
-                            </div>
-
-                            <LanguageSwitcher className="mr-0.5 sm:mr-1"/>
-
                             <button
                                 type="button"
                                 aria-label={t.common.search}
@@ -279,8 +268,9 @@ export function Header() {
                             <div className="mt-6 flex gap-3">
                                 {[
                                     {href: "/catalog", label: t.nav.allProducts},
-                                    {href: "/catalog?sort=new", label: t.common.new},
                                     {href: "/catalog?tag=sale", label: t.common.sale},
+                                    {href: "/delivery", label: t.nav.delivery},
+                                    {href: "/contacts", label: t.nav.contacts},
                                 ].map((l) => (
                                     <Link
                                         key={l.href}

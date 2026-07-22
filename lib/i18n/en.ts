@@ -56,7 +56,7 @@ export const en: Dict = {
 
   header: {
     announce: "Free shipping over ₴1500 · We ship every day · Cash on delivery available",
-    announceShort: "We ship every day · Cash on delivery",
+    announceShort: "We ship every day",
     megaFavorite: "Favourite",
     megaTulips: "Tulips that\nnever wilt",
     megaLook: "Explore",
@@ -98,20 +98,6 @@ export const en: Dict = {
     heroText: "Decor, shelves, vases and small things that keep your space in order. Soft shapes, calm shades and materials you want to touch.",
     heroCta: "Shop decor",
     heroCta2: "New this week",
-    heroBadgeRing: "we ship every day · nova poshta · ukrposhta ·",
-    stats: [
-      { value: "10.7k", label: "followers on Instagram" },
-      { value: "330+", label: "products in stock" },
-      { value: "4.9", label: "average customer rating" },
-    ],
-    heroPromoEyebrow: "New customer offer",
-    heroPromoTitle: "−10% on your first order",
-    heroPromoText: "Use the code ZORIA10 at checkout.",
-    heroTiles: [
-      { title: "Ribbed vase", caption: "Handmade ceramics" },
-      { title: "Mushroom lamp", caption: "Warm evening light" },
-      { title: "Tulips, set of 5", caption: "Lifelike. Forever." },
-    ],
     marquee: [
       "We ship every day",
       "Cash on delivery",
