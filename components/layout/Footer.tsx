@@ -5,7 +5,6 @@ import { Instagram, Mail, Phone, Send } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { categories } from "@/lib/data/categories";
 import { SubscribeForm } from "@/components/layout/SubscribeForm";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useT } from "@/lib/i18n";
 
 export function Footer() {
@@ -48,7 +47,6 @@ export function Footer() {
               >
                 <Send className="h-4 w-4" />
               </a>
-              <LanguageSwitcher className="ml-1" />
             </div>
           </div>
 
